@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tidycashlovelace.controller.DashboardController">
+   <children>
+      <Pane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="150.0" style="-fx-background: 444444;">
+         <children>
+            <Rectangle fill="#444444" height="800.0" stroke="#444444" strokeType="INSIDE" strokeWidth="0.0" width="150.0" />
+            <Button layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3a3a3a;" text="Dasbor" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutY="190.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleBtnKeuangan" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #444444;" text="Keuangan" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleBtnTransaksi" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #444444;" text="Transaksi" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutY="270.0" mnemonicParsing="false" onAction="#handleBtnStokBarang" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #444444;" text="Stok Barang" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="8.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toko Siapa">
+               <font>
+                  <Font name="Roboto Black" size="26.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="150.0" prefHeight="800.0" prefWidth="1130.0">
+         <children>
+            <Rectangle fill="#f0f9ff" height="766.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1131.0" />
+            <Pane layoutX="30.0" layoutY="401.0" prefHeight="338.0" prefWidth="509.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-border-radius: 15;">
+               <children>
+                  <Text fill="#444444" layoutX="145.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaksi Terakhir" wrappingWidth="183.17800903320312">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="135.0" fitWidth="132.0" layoutX="166.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../TidyCash_Lovelace/src/images/cart-add.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="45.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleBtnTransaksi" prefHeight="284.0" prefWidth="423.0" style="-fx-background-color: transparent;" textFill="#dfb17a">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Rectangle fill="#d2ac7c" height="40.0" layoutY="760.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1131.0" />
+            <ImageView fitHeight="21.0" fitWidth="125.0" layoutX="1042.0" layoutY="770.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../TidyCash_Lovelace/src/images/logo%20baru.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="582.0" layoutY="401.0" prefHeight="338.0" prefWidth="509.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-border-radius: 15;">
+               <children>
+                  <Text fill="#444444" layoutX="195.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stok Barang" wrappingWidth="132.0000171661377">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="135.0" fitWidth="132.0" layoutX="183.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../TidyCash_Lovelace/src/images/clipboard.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="55.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleBtnStokBarang" prefHeight="295.0" prefWidth="423.0" style="-fx-background-color: transparent;" textFill="#dfb17a">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="329.0" layoutY="35.0" prefHeight="338.0" prefWidth="509.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@../../../TidyCash_Lovelace/src/css/chart.css">
+               <children>
+                  <Text fill="#444444" layoutX="188.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keuangan" wrappingWidth="92.17800903320312">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="135.0" fitWidth="132.0" layoutX="168.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../TidyCash_Lovelace/src/images/dolar.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="18.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleBtnKeuangan" prefHeight="320.0" prefWidth="483.0" style="-fx-background-color: transparent;" textFill="#dfb17a">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

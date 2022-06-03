@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tidycashlovelace.TransaksiController">
+   <children>
+      <Pane layoutX="150.0" prefHeight="800.0" prefWidth="1131.0">
+         <children>
+            <Rectangle fill="#f0f9ff" height="800.0" onDragDetected="#handleRefreshAction" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1131.0" />
+            <Rectangle fill="#d2ac7c" height="40.0" layoutY="760.0" onDragDetected="#handleRefreshAction" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1131.0" />
+            <ImageView fitHeight="21.0" fitWidth="125.0" layoutX="1042.0" layoutY="770.0" onDragDetected="#handleRefreshAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo%20baru.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tvTrns" layoutX="24.0" layoutY="135.0" prefHeight="547.0" prefWidth="1078.0">
+               <columns>
+                  <TableColumn fx:id="tcNama" prefWidth="254.0" text="Nama Transaksi" />
+                  <TableColumn fx:id="tcTanggal" minWidth="1.0" prefWidth="182.0" text="Tanggal" />
+                  <TableColumn fx:id="tcJumlahSatuan" prefWidth="154.0" text="Jumlah (satuan)" />
+                  <TableColumn fx:id="tcHarga" prefWidth="248.0" text="Jumlah (Rp)" />
+                  <TableColumn fx:id="tcTotalRp" prefWidth="235.0" text="Total (Rp)" />
+               </columns>
+            </TableView>
+            <Button layoutX="1002.0" layoutY="702.0" mnemonicParsing="false" onAction="#btnMunculTambahPane" prefHeight="30.0" prefWidth="99.0" style="-fx-background-color: #5DCC97; -fx-background-radius: 80; -fx-border-radius: 80;" text="Tambah" textFill="WHITE">
+               <font>
+                  <Font name="Inter SemiBold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnUbah" layoutX="893.0" layoutY="702.0" mnemonicParsing="false" onAction="#btnMunculUbahPane" prefHeight="30.0" prefWidth="99.0" style="-fx-background-color: #67a5d0; -fx-background-radius: 80; -fx-border-radius: 80;" text="Ubah" textFill="WHITE">
+               <font>
+                  <Font name="Inter SemiBold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnHapus" layoutX="784.0" layoutY="702.0" mnemonicParsing="false" onAction="#btnHapusAction" prefHeight="30.0" prefWidth="99.0" style="-fx-background-color: #f55f47; -fx-background-radius: 80; -fx-border-radius: 80;" text="Hapus" textFill="WHITE">
+               <font>
+                  <Font name="Inter SemiBold" size="12.0" />
+               </font>
+            </Button>
+            <HBox layoutX="29.0" layoutY="45.0" prefHeight="40.0" prefWidth="667.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="156.0" style="-fx-background-color: #f0f9ff;" text="Pendapatan" textFill="#d2ac7c">
+                     <font>
+                        <Font name="Inter Medium" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtnExpenses" prefHeight="40.0" prefWidth="153.0" style="-fx-background-color: #f0f9ff;" text="Pengeluaran" textFill="#444444">
+                     <font>
+                        <Font name="Inter Medium" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="115.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #f0f9ff;" text="Hutang" textFill="#444444">
+                     <font>
+                        <Font name="Inter Medium" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="220.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: #f0f9ff;" text="Piutang" textFill="#444444">
+                     <font>
+                        <Font name="Inter Medium" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+            <Pane fx:id="paneUbah" layoutX="400.0" layoutY="297.0" prefHeight="282.0" prefWidth="333.0" style="-fx-background-color: #8f8f8f;">
+               <children>
+                  <TextField fx:id="tfUbahNama" layoutX="94.0" layoutY="159.0" prefHeight="25.0" prefWidth="157.0" />
+                  <Button layoutX="176.0" layoutY="190.0" mnemonicParsing="false" onAction="#paneUbahBtnSimpanAction" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #e3e3e3;" text="Ubah" />
+                  <Button layoutX="95.0" layoutY="189.0" mnemonicParsing="false" onAction="#paneUbahBtnBatal" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #2b2b2b;" text="Batal" textFill="#919191">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="101.0" layoutY="62.0" prefHeight="18.0" prefWidth="150.0" text="Ubah Data" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfUbah" layoutX="94.0" layoutY="97.0" prefHeight="26.0" prefWidth="157.0" promptText="Line" />
+                  <ChoiceBox fx:id="cbUbah" layoutX="94.0" layoutY="128.0" prefHeight="25.0" prefWidth="157.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneUbah1" layoutX="250.0" layoutY="100.0" prefHeight="555.0" prefWidth="622.0" style="-fx-background-color: DFB17A; -fx-background-radius: 10; -fx-border-color: ffffff; -fx-border-radius: 10; -fx-border-width: 2;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Text fill="WHITE" layoutX="256.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ubah Data">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="tfNamaTransaksi_ubah" layoutX="150.0" layoutY="154.0" prefHeight="40.0" prefWidth="451.0" promptText="Contoh: 'Jual Apel'" style="-fx-background-radius: 80;" />
+                  <Text fill="WHITE" layoutX="18.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Transaksi">
+                     <font>
+                        <Font name="Inter SemiBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="45.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggal">
+                     <font>
+                        <Font name="Inter SemiBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="tfJumlah_ubah" layoutX="152.0" layoutY="255.0" prefHeight="40.0" prefWidth="451.0" promptText="200" style="-fx-background-radius: 80;" />
+                  <Text fill="WHITE" layoutX="19.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jumlah Barang">
+                     <font>
+                        <Font name="Inter SemiBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="tfHarga_ubah" layoutX="152.0" layoutY="306.0" prefHeight="40.0" prefWidth="451.0" promptText="(dalam rupiah)" style="-fx-background-radius: 80;" />
+                  <Text fill="WHITE" layoutX="24.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Harga Barang">
+                     <font>
+                        <Font name="Inter SemiBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="463.0" layoutY="473.0" mnemonicParsing="false" onAction="#paneUbahBtnSimpanAction" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: DFB17A; -fx-border-radius: 80; -fx-background-radius: 80; -fx-border-color: ffffff; -fx-border-width: 2;" text="Ubah" textFill="WHITE" />
+                  <Button layoutX="306.0" layoutY="473.0" mnemonicParsing="false" onAction="#paneUbahBtnBatal" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: DFB17A; -fx-border-radius: 80; -fx-background-radius: 80; -fx-border-width: 2;" text="Batal" textFill="WHITE" />
+                  <DatePicker fx:id="dateTanggal_ubah" layoutX="157.0" layoutY="210.0" promptText="12/30/2021" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneTambah" layoutX="263.0" layoutY="93.0" prefHeight="555.0" prefWidth="622.0" style="-fx-background-color: DFB17A; -fx-background-radius: 10; -fx-border-color: ffffff; -fx-border-radius: 10; -fx-border-width: 2;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Text fill="WHITE" layoutX="244.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pemasukan">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="tfNamaTransaksi" layoutX="150.0" layoutY="154.0" prefHeight="40.0" prefWidth="451.0" promptText="Contoh: 'Jual Apel'" style="-fx-background-radius: 80;" />
+                  <Text fill="WHITE" layoutX="18.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Transaksi">
+                     <font>
+                        <Font name="Inter SemiBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="45.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggal">
+                     <font>
+                        <Font name="Inter SemiBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="tfJumlah" layoutX="152.0" layoutY="255.0" prefHeight="40.0" prefWidth="451.0" promptText="200" style="-fx-background-radius: 80;" />
+                  <Text fill="WHITE" layoutX="19.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jumlah Barang">
+                     <font>
+                        <Font name="Inter SemiBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="tfHarga" layoutX="152.0" layoutY="306.0" prefHeight="40.0" prefWidth="451.0" promptText="(dalam rupiah)" style="-fx-background-radius: 80;" />
+                  <Text fill="WHITE" layoutX="24.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Harga Barang">
+                     <font>
+                        <Font name="Inter SemiBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="463.0" layoutY="473.0" mnemonicParsing="false" onAction="#paneTambahBtnSimpanAction" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: DFB17A; -fx-border-radius: 80; -fx-background-radius: 80; -fx-border-color: ffffff; -fx-border-width: 2;" text="Tambah" textFill="WHITE" />
+                  <Button layoutX="306.0" layoutY="473.0" mnemonicParsing="false" onAction="#paneTambahBtnBatal" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: DFB17A; -fx-border-radius: 80; -fx-background-radius: 80; -fx-border-width: 2;" text="Batal" textFill="WHITE" />
+                  <DatePicker fx:id="dateTanggal" layoutX="157.0" layoutY="210.0" promptText="12/30/2021" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="150.0" style="-fx-background: 444444;">
+         <children>
+            <Rectangle fill="#444444" height="800.0" stroke="#444444" strokeType="INSIDE" strokeWidth="0.0" width="150.0" />
+            <Button layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleBtnDashboard" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: 444444;" text="Dasbor" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutY="190.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleBtnKeuangan" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #444444;" text="Keuangan" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3a3a3a;" text="Transaksi" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutY="270.0" mnemonicParsing="false" onAction="#handleBtnStokBarang" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: 444444;" text="Stok Barang" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="8.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toko Siapa">
+               <font>
+                  <Font name="Roboto Black" size="26.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+   <stylesheets>
+      <URL value="@../../../TidyCash_Lovelace/src/css/table_view.css" />
+      <URL value="@../css/table_view.css" />
+   </stylesheets>
+</AnchorPane>
